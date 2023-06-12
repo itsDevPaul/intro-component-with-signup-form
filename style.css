@@ -1,0 +1,230 @@
+:root {
+  /* Colors */
+  --color-primary-red: hsl(0, 100%, 74%);
+  --color-primary-green: hsl(154, 59%, 51%);
+  --color-accent-blue: hsl(248, 32%, 49%);
+  --color-neutral-dark-blue: hsl(249, 10%, 26%);
+  --color-neutral-grayish-blue: hsl(246, 25%, 77%);
+  --color-neutral-white: hsl(0, 0%, 100%);
+
+  /* Fonts */
+  --font-primary: 'Poppins', sans-serif;
+  --font-body: var(--font-primary);
+  --font-heading: var(--font-primary);
+
+  /* Font weights */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Font sizes */
+  --font-size-body: 1rem;
+  --font-size-primary-heading: clamp(1.875rem, 2.5vw + 1rem, 3.25rem);
+}
+
+
+/* CSS reset */
+/* https://piccalil.li/blog/a-modern-css-reset */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+} 
+
+/* Remove default margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Make images easier to work with */
+img,
+picture,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+
+/* Utilities */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* General styling */
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-neutral-white);
+  margin-block: 2rem;
+
+  background-image: url("images/bg-intro-mobile.png");
+  background-color: var(--color-primary-red);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+@media(min-width: 45em) {
+  body {
+    background-image: url("images/bg-intro-desktop.png");
+    display: grid;
+    place-items: center;
+    margin-block: 15vh;
+  }
+}
+
+h1 {
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-primary-heading);
+  line-height: 1.125;
+  margin-block-end: 1.125rem;
+}
+
+/* Main content */
+
+.content-container {
+  width: min(69.375rem, 90%);
+  margin-inline: auto;
+  display: grid;
+  gap: 4.25rem;
+}
+
+@media(min-width: 45em) {
+  .content-container {
+    gap: min(6.67vw, 1.75rem);
+    grid-template-columns: repeat(2, 1fr);
+    place-items: center;
+  }
+}
+
+@media (max-width: 45em) {
+  .intro-section {
+    text-align: center;
+  }
+}
+
+.signup-section {
+  width: 100%;
+}
+
+.pricing-detail {
+  color: var(--color-neutral-white);
+  padding: 1.5rem 3rem;
+  background-color: var(--color-accent-blue);
+  text-align: center;
+  margin-block-end: 1.5rem;
+  border-radius: .5rem;
+  box-shadow: 0px 7px 1px rgba(0, 0, 0, 0.15);
+}
+
+.pricing-detail span {
+  font-weight: var(--font-weight-bold);
+}
+
+form {
+  display: grid;
+  gap: 1rem;
+  padding: 1.5rem;
+  background-color: var(--color-neutral-white);
+  border-radius: .5rem;
+}
+
+@media (min-width: 50em) {
+  form {
+    padding: 2.25rem;
+  }
+}
+
+input, button {
+  height: 3.375rem;
+}
+
+input {
+  width: 100%;
+  border: 1px solid var(--color-neutral-grayish-blue);
+  border-radius: .5rem;
+  padding-inline-start: 1.25rem;
+}
+ 
+input::placeholder {
+  font-weight: var(--font-weight-semibold);
+}
+
+.submit-button {
+  background-color: var(--color-primary-green);
+  color: var(--color-neutral-white);
+  border: 0;
+  border-radius: .5rem;
+  font-weight: var(--font-weight-semibold);
+  box-shadow: 0px 3px hsl(154, 57%, 38%);
+  cursor: pointer;
+}
+
+.submit-button:hover,
+.submit-button:focus-visible {
+  opacity: 0.75;
+}
+
+.terms-notice {
+  font-size: .75rem;
+  color: var(--color-neutral-grayish-blue);
+  text-align: center;
+}
+
+.terms-notice a {
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary-red);
+  text-decoration: none;
+}
+
+.input-container {
+  position: relative;
+}
+
+.error-icon {
+  position: absolute;
+  top: 1rem;
+  right: .75rem;
+  display: none;
+}
+
+.error-message {
+  font-size: .75rem;
+  font-style: italic;
+  color: var(--color-primary-red);
+  text-align: end;
+  display: none;
+}
+
+.input-error {
+  border: 2px solid var(--color-primary-red);
+}
